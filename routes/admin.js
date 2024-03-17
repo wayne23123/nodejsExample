@@ -2,11 +2,17 @@ const express = require('express')
 
 const router = express.Router()
 
+// 70.
+const path = require('path')
+
+// router.get('/admin/add-product',(req,res,next)=>{
+// 68. /admin 直接加在外面
+// 70.
 router.get('/add-product',(req,res,next)=>{
-    res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">add product</button></form>')
+    res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'))
 })
 
-router.post('/product',(req,res,next)=>{
+router.post('/add-product',(req,res,next)=>{
     console.log(req.body)
     res.redirect('/')
 })

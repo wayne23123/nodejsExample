@@ -4,15 +4,28 @@ const app = express()
 
 const bodyParser = require('body-parser')
 
+// 71.
+const path = require('path')
+
 // 66. 路由拆分
 const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 
+
 app.use(bodyParser.urlencoded({extended: false}))
 
 // 66. 路由拆分
-app.use(adminRoutes)
+// 68. 路徑增加 /admin/
+app.use('/admin', adminRoutes)
 app.use(shopRoutes)
+
+// 67. 404 頁面
+app.use((req,res,next)=>{
+    // 67. 設置 404 狀態碼
+    // 71. 配置 404 頁面
+    console.log('404 Page Not Found: ', req.url);
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+})
 
 app.listen(3000)
 
