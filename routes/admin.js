@@ -8,6 +8,9 @@ const path = require('path')
 // 73.
 const rootDir = require('../util/path')
 
+// 79. 數據
+const products = []
+
 // router.get('/admin/add-product',(req,res,next)=>{
 // 68. /admin 直接加在外面
 // 70.
@@ -21,7 +24,12 @@ router.get('/add-product',(req,res,next)=>{
 
 router.post('/add-product',(req,res,next)=>{
     console.log(req.body)
+    // 79.
+    products.push({ title: req.body.title })
     res.redirect('/')
 })
 
-module.exports = router
+// module.exports = router
+// 79.
+exports.routes = router
+exports.products = products

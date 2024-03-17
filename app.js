@@ -8,7 +8,9 @@ const bodyParser = require('body-parser')
 const path = require('path')
 
 // 66. 路由拆分
-const adminRoutes = require('./routes/admin')
+// const adminRoutes = require('./routes/admin')
+// 79.
+const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 
 
@@ -19,7 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // 66. 路由拆分
 // 68. 路徑增加 /admin/
-app.use('/admin', adminRoutes)
+// app.use('/admin', adminRoutes)
+// 79.
+app.use('/admin', adminData.routes)
 app.use(shopRoutes)
 
 // 67. 404 頁面
