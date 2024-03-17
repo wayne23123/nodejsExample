@@ -14,6 +14,9 @@ const shopRoutes = require('./routes/shop')
 
 app.use(bodyParser.urlencoded({extended: false}))
 
+// 75. 解決首頁不能訪問 public 下的 css 樣式文件
+app.use(express.static(path.join(__dirname, 'public')))
+
 // 66. 路由拆分
 // 68. 路徑增加 /admin/
 app.use('/admin', adminRoutes)
