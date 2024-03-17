@@ -16,8 +16,11 @@ router.get('/',(req,res,next)=>{
     // ../ 改成 .. 確保在 windows 和 mac 都可以用
     // res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'))
     // 73.
-    res.sendFile(path.join(rootDir, 'views', 'shop.html'))
+    // res.sendFile(path.join(rootDir, 'views', 'shop.html'))
     // 70. 路徑問題 lunix /views/shop.html， windows 是 \views\shop.html
+
+    // 81.
+    res.render('shop')
 
     // 79.
     console.log('shop.js', adminData.products)

@@ -2,6 +2,10 @@ const express = require('express')
 
 const app = express()
 
+// 81. https://expressjs.com/en/5x/api.html#app.set
+app.set('view engine', 'pug')
+app.set('views', 'views')
+
 const bodyParser = require('body-parser')
 
 // 71.
@@ -12,7 +16,6 @@ const path = require('path')
 // 79.
 const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
-
 
 app.use(bodyParser.urlencoded({extended: false}))
 
