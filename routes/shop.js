@@ -19,8 +19,13 @@ router.get('/',(req,res,next)=>{
     // res.sendFile(path.join(rootDir, 'views', 'shop.html'))
     // 70. 路徑問題 lunix /views/shop.html， windows 是 \views\shop.html
 
-    // 81.
-    res.render('shop')
+    // 82. 傳送數據到 pug template
+    const products = adminData.products
+
+    // 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
+    // res.render('shop')
+    // 82. 傳送數據到 pug template
+    res.render('shop', {prods: products, docTitle: 'shop'})
 
     // 79.
     console.log('shop.js', adminData.products)
