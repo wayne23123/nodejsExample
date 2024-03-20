@@ -19,7 +19,9 @@ router.get('/add-product',(req,res,next)=>{
     // ../ 改成 .. 確保在 windows 和 mac 都可以用
     // res.sendFile(path.join(__dirname, '..', 'views', 'add-product.html'))
     // 73.
-    res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
+    // res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
+    // 84.
+    res.render('add-product', {pageTitle: 'add product'})
 })
 
 router.post('/add-product',(req,res,next)=>{
