@@ -2,7 +2,7 @@ const express = require('express')
 
 const app = express()
 
-// 81. https://expressjs.com/en/5x/api.html#app.set
+// 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
 app.set('view engine', 'pug')
 app.set('views', 'views')
 
@@ -34,7 +34,10 @@ app.use((req,res,next)=>{
     // 67. 設置 404 狀態碼
     // 71. 配置 404 頁面
     console.log('404 Page Not Found: ', req.url);
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+    // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+
+    // 84.
+    res.status(404).render('404')
 })
 
 app.listen(3000)
