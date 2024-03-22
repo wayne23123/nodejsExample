@@ -25,7 +25,7 @@ router.get('/',(req,res,next)=>{
     // 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
     // res.render('shop')
     // 82. 傳送數據到 pug template
-    res.render('shop', {prods: products, docTitle: 'shop'})
+    res.render('shop', { prods: products, pageTitle: 'shop', path: '/' })
 
     // 79.
     console.log('shop.js', adminData.products)
