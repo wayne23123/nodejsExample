@@ -1,9 +1,15 @@
 const express = require('express')
+// 88. 除了 pug 也可以用其他的
+const { engine } = require('express-handlebars')
 
 const app = express()
 
+// 88. 除了 pug 也可以用其他的
+app.engine('handlebars', engine())
+app.set('view engine', 'handlebars')
+
 // 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
-app.set('view engine', 'pug')
+// app.set('view engine', 'pug')
 app.set('views', 'views')
 
 const bodyParser = require('body-parser')
