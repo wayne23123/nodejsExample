@@ -28,17 +28,22 @@ module.exports = class Product {
     });
   }
 
-  static fetchAll() {
+  static fetchAll(callback) {
     const p = path.join(
       path.dirname(process.mainModule.filename),
       'data',
       'products.json'
     );
+    // 這是異步代碼
     fs.readFile(p, (err, fileContent) => {
       if (err) {
-        return [];
+        // return [];
+        // 102. 解決異步問題
+        callback([]);
       }
-      return JSON.parse(fileContent);
+      //   return JSON.parse(fileContent);
+      // 102. 解決異步問題
+      callback(JSON.parse(fileContent));
     });
     // return products;
   }
