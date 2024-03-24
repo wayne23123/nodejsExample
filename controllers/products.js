@@ -4,7 +4,7 @@ const Product = require('../models/product');
 // const products = [];
 
 exports.getAddProduct = (req, res, next) => {
-  res.render('add-product', {
+  res.render('admin/add-product', {
     pageTitle: 'add product',
     path: '/admin/add-product',
     formsCSS: true,
@@ -24,9 +24,9 @@ exports.postAddProduct = (req, res, next) => {
 exports.getProducts = (req, res, next) => {
   // 100. 新增商品 Model
   // const product = Product.fetchAll();
-  // 102. 解決異步問題，更改後 fetchAll 不回 return 東西
+  // 102. 解決異步問題，更改後 fetchAll 不會 return 東西
   Product.fetchAll((products) => {
-    res.render('shop', {
+    res.render('shop/product-list', {
       prods: products,
       pageTitle: 'shop',
       path: '/',
