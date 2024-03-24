@@ -30,8 +30,11 @@ const path = require('path');
 // 66. 路由拆分
 // const adminRoutes = require('./routes/admin')
 // 79.
-const adminData = require('./routes/admin');
+// const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+
+// 98. 增加 controllers
+const adminRoutes = require('./routes/admin');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,8 +45,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 68. 路徑增加 /admin/
 // app.use('/admin', adminRoutes)
 // 79.
-app.use('/admin', adminData.routes);
+// app.use('/admin', adminData.routes);
 app.use(shopRoutes);
+
+// 98. 增加 controllers
+app.use('/admin', adminRoutes);
 
 // 67. 404 頁面
 app.use((req, res, next) => {
