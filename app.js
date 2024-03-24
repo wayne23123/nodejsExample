@@ -51,16 +51,20 @@ app.use(shopRoutes);
 // 98. 增加 controllers
 app.use('/admin', adminRoutes);
 
-// 67. 404 頁面
-app.use((req, res, next) => {
-  // 67. 設置 404 狀態碼
-  // 71. 配置 404 頁面
-  console.log('404 Page Not Found: ', req.url);
-  // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+const errorController = require('./controllers/error');
+// 99. 完成 controllers
+app.use(errorController.get404);
 
-  // 84.
-  res.status(404).render('404', { pageTitle: 'page not found' });
-});
+// 67. 404 頁面
+// app.use((req, res, next) => {
+//   // 67. 設置 404 狀態碼
+//   // 71. 配置 404 頁面
+//   console.log('404 Page Not Found: ', req.url);
+//   // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+
+//   // 84.
+//   res.status(404).render('404', { pageTitle: 'page not found' });
+// });
 
 app.listen(3000);
 
