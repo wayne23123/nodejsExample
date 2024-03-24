@@ -1,4 +1,7 @@
-const products = [];
+// 100. 新增商品 Model
+const Product = require('../models/product');
+
+// const products = [];
 
 exports.getAddProduct = (req, res, next) => {
   res.render('add-product', {
@@ -11,11 +14,16 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  products.push({ title: req.body.title });
+  // 100. 新增商品 Model
+  const product = new Product(req.body.title);
+  // products.push({ title: req.body.title });
   res.redirect('/');
 };
 
 exports.getProducts = (req, res, next) => {
+  // 100. 新增商品 Model
+  const product = Product.fetchAll();
+  // const products = adminData.products
   res.render('shop', {
     prods: products,
     pageTitle: 'shop',
