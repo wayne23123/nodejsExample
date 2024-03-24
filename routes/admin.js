@@ -24,7 +24,7 @@ router.get('/add-product',(req,res,next)=>{
     // res.render('add-product', {pageTitle: 'add product'})
 
     // 86.
-    res.render('add-product', {pageTitle: 'add product', path: '/admin/add-product' })
+    res.render('add-product', {pageTitle: 'add product', path: '/admin/add-product', formsCSS: true, productCSS: true, activeAddProduvt: true })
 })
 
 router.post('/add-product',(req,res,next)=>{

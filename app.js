@@ -4,8 +4,10 @@ const { engine } = require('express-handlebars')
 
 const app = express()
 
-// 88. 除了 pug 也可以用其他的
-app.engine('handlebars', engine())
+// 88. 除了 pug 也可以用其他的 handlebars
+app.engine('handlebars', engine({
+    layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'handlebars'
+}))
 app.set('view engine', 'handlebars')
 
 // 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
