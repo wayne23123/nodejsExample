@@ -1,19 +1,22 @@
 const express = require('express');
 // 88. 除了 pug 也可以用其他的
-const { engine } = require('express-handlebars');
+// const { engine } = require('express-handlebars');
 
 const app = express();
 
 // 88. 除了 pug 也可以用其他的 handlebars
-app.engine(
-  'handlebars',
-  engine({
-    layoutsDir: 'views/layouts/',
-    defaultLayout: 'main-layout',
-    extname: 'handlebars',
-  })
-);
-app.set('view engine', 'handlebars');
+// app.engine(
+//   'handlebars',
+//   engine({
+//     layoutsDir: 'views/layouts/',
+//     defaultLayout: 'main-layout',
+//     extname: 'handlebars',
+//   })
+// );
+// app.set('view engine', 'handlebars');
+
+// 91. 改成用 ejs (ejs 不支持 layout)
+app.set('view engine', 'ejs');
 
 // 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
 // app.set('view engine', 'pug')
