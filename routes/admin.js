@@ -15,9 +15,14 @@ const productsController = require('../controllers/products');
 // const products = [];
 
 // 98. 增加 controllers
+// /admin/add-products => GET
 router.get('/add-product', productsController.getAddProduct);
 
+// /admin/add-products => POST
 router.post('/add-product', productsController.postAddProduct);
+
+// /admin/products => GET
+router.get('/product');
 
 // router.get('/admin/add-product',(req,res,next)=>{
 // 68. /admin 直接加在外面

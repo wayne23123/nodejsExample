@@ -10,6 +10,12 @@ const productsController = require('../controllers/products');
 
 router.get('/', productsController.getProducts);
 
+router.get('/pruducts');
+
+router.get('/cart');
+
+router.get('/checkout');
+
 // 73.
 // const rootDir = require('../util/path');
 
