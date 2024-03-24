@@ -1,55 +1,59 @@
-const express = require('express')
+const express = require('express');
 // 88. 除了 pug 也可以用其他的
-const { engine } = require('express-handlebars')
+const { engine } = require('express-handlebars');
 
-const app = express()
+const app = express();
 
 // 88. 除了 pug 也可以用其他的 handlebars
-app.engine('handlebars', engine({
-    layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'handlebars'
-}))
-app.set('view engine', 'handlebars')
+app.engine(
+  'handlebars',
+  engine({
+    layoutsDir: 'views/layouts/',
+    defaultLayout: 'main-layout',
+    extname: 'handlebars',
+  })
+);
+app.set('view engine', 'handlebars');
 
 // 81. 渲染pug https://expressjs.com/en/5x/api.html#app.set
 // app.set('view engine', 'pug')
-app.set('views', 'views')
+app.set('views', 'views');
 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 // 71.
-const path = require('path')
+const path = require('path');
 
 // 66. 路由拆分
 // const adminRoutes = require('./routes/admin')
 // 79.
-const adminData = require('./routes/admin')
-const shopRoutes = require('./routes/shop')
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // 75. 解決首頁不能訪問 public 下的 css 樣式文件
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 // 66. 路由拆分
 // 68. 路徑增加 /admin/
 // app.use('/admin', adminRoutes)
 // 79.
-app.use('/admin', adminData.routes)
-app.use(shopRoutes)
+app.use('/admin', adminData.routes);
+app.use(shopRoutes);
 
 // 67. 404 頁面
-app.use((req,res,next)=>{
-    // 67. 設置 404 狀態碼
-    // 71. 配置 404 頁面
-    console.log('404 Page Not Found: ', req.url);
-    // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
+app.use((req, res, next) => {
+  // 67. 設置 404 狀態碼
+  // 71. 配置 404 頁面
+  console.log('404 Page Not Found: ', req.url);
+  // res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 
-    // 84.
-    res.status(404).render('404', {pageTitle: 'page not found'})
-})
+  // 84.
+  res.status(404).render('404', { pageTitle: 'page not found' });
+});
 
-app.listen(3000)
-
+app.listen(3000);
 
 // // 66. 路由拆分前
 // const express = require('express')
@@ -68,7 +72,6 @@ app.listen(3000)
 //     res.send('<h1>hello world</h1>')
 // })
 // app.listen(3000)
-
 
 // const express = require('express')
 
@@ -106,7 +109,6 @@ app.listen(3000)
 //     console.log('in the middleware')
 //     res.send('<h1>hello world</h1>')
 // })
-
 
 // // // 60.中間件練習 ------------------------------------------------------------------
 // // // use 允許添加一個新的中間件函數
