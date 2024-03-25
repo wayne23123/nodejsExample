@@ -9,20 +9,29 @@ const path = require('path');
 // const rootDir = require('../util/path');
 
 // 98. 增加 controllers
-const productsController = require('../controllers/products');
+// const productsController = require('../controllers/products');
+
+// 109.
+const adminController = require('../controllers/admin');
 
 // 79. 數據
 // const products = [];
 
 // 98. 增加 controllers
 // /admin/add-products => GET
-router.get('/add-product', productsController.getAddProduct);
+// router.get('/add-product', productsController.getAddProduct);
+
+// 109.
+router.get('/add-product', adminController.getAddProduct);
 
 // /admin/add-products => POST
-router.post('/add-product', productsController.postAddProduct);
+// router.post('/add-product', productsController.postAddProduct);
+
+// 109.
+router.post('/add-product', adminController.postAddProduct);
 
 // /admin/products => GET
-router.get('/product');
+router.get('/products', adminController.getProducts);
 
 // router.get('/admin/add-product',(req,res,next)=>{
 // 68. /admin 直接加在外面

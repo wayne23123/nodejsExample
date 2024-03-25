@@ -6,15 +6,20 @@ const router = express.Router();
 const path = require('path');
 
 // 98. 增加 controllers
-const productsController = require('../controllers/products');
+// const productsController = require('../controllers/shop');
+// 109.
+const shopController = require('../controllers/shop');
 
-router.get('/', productsController.getProducts);
+// router.get('/', productsController.getProducts);
+// 109.
+// router.get('/', shopController.getProducts);
+router.get('/', shopController.getIndex);
 
-router.get('/pruducts');
+router.get('/pruducts', shopController.getProducts);
 
-router.get('/cart');
+router.get('/cart', shopController.getCart);
 
-router.get('/checkout');
+router.get('/checkout', shopController.getCheckout);
 
 // 73.
 // const rootDir = require('../util/path');
