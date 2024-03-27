@@ -31,7 +31,7 @@ router.get('/add-product', adminController.getAddProduct);
 router.post('/add-product', adminController.postAddProduct);
 
 // /admin/products => GET
-// router.get('/products', adminController.getProducts);
+router.get('/products', adminController.getProducts);
 
 // router.get('/admin/add-product',(req,res,next)=>{
 // 68. /admin 直接加在外面
