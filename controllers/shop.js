@@ -14,6 +14,11 @@ exports.getProducts = (req, res, next) => {
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
   // console.log('prodId', prodId)
+
+  // 120. 讀取商品細節資料
+  Product.findById(prodId, (product) => {
+    console.log(product);
+  });
   res.redirect('/');
 };
 

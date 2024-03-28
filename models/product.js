@@ -32,7 +32,7 @@ module.exports = class Product {
   // function save() {
   save() {
     // 118. 新增商品 ID 到路徑
-    this.id = Math.random().toString;
+    this.id = Math.random().toString();
 
     // 103.
     getProductsFromFile((products) => {
@@ -81,5 +81,15 @@ module.exports = class Product {
     //   callback(JSON.parse(fileContent));
     // });
     // // return products;
+  }
+
+  // 120. 讀取商品細節資料
+  static findById(id, callback) {
+    getProductsFromFile((products) => {
+      const product = products.find((item) => {
+        return item.id === id;
+      });
+      callback(product);
+    });
   }
 };
