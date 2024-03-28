@@ -33,6 +33,9 @@ router.post('/add-product', adminController.postAddProduct);
 // /admin/products => GET
 router.get('/products', adminController.getProducts);
 
+// 124. 使用 query 參數
+router.get('/edit-product/:productId', adminController.getEditProduct);
+
 // router.get('/admin/add-product',(req,res,next)=>{
 // 68. /admin 直接加在外面
 // 70.
