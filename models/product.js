@@ -31,6 +31,9 @@ module.exports = class Product {
 
   // function save() {
   save() {
+    // 118. 新增商品 ID 到路徑
+    this.id = Math.random().toString;
+
     // 103.
     getProductsFromFile((products) => {
       products.push(this);

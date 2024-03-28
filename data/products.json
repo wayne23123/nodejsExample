@@ -1,1 +1,8 @@
-[{"title":"123"},{"title":"321"},{"title":"1234567"}]
+[
+  {
+    "id": "1234",
+    "title": "123",
+    "imageUrl": "https://i.imgur.com/j6pkpbU.jpeg",
+    "price": "20"
+  }
+]
