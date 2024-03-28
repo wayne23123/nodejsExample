@@ -36,6 +36,9 @@ router.get('/products', adminController.getProducts);
 // 124. 使用 query 參數
 router.get('/edit-product/:productId', adminController.getEditProduct);
 
+// 126. 連結到編輯頁面
+router.post('/edit-product');
+
 // router.get('/admin/add-product',(req,res,next)=>{
 // 68. /admin 直接加在外面
 // 70.
