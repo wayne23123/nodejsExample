@@ -40,7 +40,7 @@ module.exports = class Product {
       // 127. 編輯商品資料
       if (this.id) {
         const existingProductIndex = products.findIndex((prod) => {
-          prod.id === this.id;
+          return prod.id == this.id;
         });
         const updatedProducts = [...products];
         updatedProducts[existingProductIndex] = this;
