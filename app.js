@@ -2,6 +2,9 @@ const express = require('express');
 // 88. 除了 pug 也可以用其他的
 // const { engine } = require('express-handlebars');
 
+// 140.
+const db = require('./util/database')
+
 const app = express();
 
 // 88. 除了 pug 也可以用其他的 handlebars
@@ -35,6 +38,9 @@ const shopRoutes = require('./routes/shop');
 
 // 98. 增加 controllers
 const adminRoutes = require('./routes/admin');
+
+// 140.
+db.execute('SELECT * FROM products')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
