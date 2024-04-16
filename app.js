@@ -40,7 +40,7 @@ const shopRoutes = require('./routes/shop');
 const adminRoutes = require('./routes/admin');
 
 // 140.
-db.execute('SELECT * FROM products')
+db.execute('SELECT * FROM products').then().catch()
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
