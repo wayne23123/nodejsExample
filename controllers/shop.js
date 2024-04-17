@@ -28,13 +28,24 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-  Product.fetchAll((products) => {
-    res.render('shop/index', {
-      prods: products,
-      pageTitle: 'shop',
-      path: '/',
-    });
-  });
+  Product.fetchAll()
+    .then(([rows, fieldData]) => {
+      res.render('shop/index', {
+        prods: rows,
+        pageTitle: 'shop',
+        path: '/',
+      });
+    })
+    .catch((err) => console.log('err', err));
+
+  // 143. 改成串接 database
+  // Product.fetchAll((products) => {
+  //   res.render('shop/index', {
+  //     prods: products,
+  //     pageTitle: 'shop',
+  //     path: '/',
+  //   });
+  // });
 };
 
 exports.getCart = (req, res, next) => {

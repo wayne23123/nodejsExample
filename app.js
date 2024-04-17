@@ -39,7 +39,7 @@ const shopRoutes = require('./routes/shop');
 // 98. 增加 controllers
 const adminRoutes = require('./routes/admin');
 
-// 140.
+// 140. 只是測試是否連接到 database
 db.execute('SELECT * FROM products')
     .then(result => {
         console.log('result', result)
